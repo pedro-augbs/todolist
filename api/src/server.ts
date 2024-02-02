@@ -17,6 +17,12 @@ app.register(putNote);
 app.register(getNote);
 app.register(deleteNote);
 
-app.listen({ port: 3333 }).then(() => {
-	console.log("listening on port 3333");
-});
+app
+	.listen({ port: 3333 })
+	.then(() => {
+		console.log("listening on port 3333");
+	})
+	.catch((err) => {
+		console.log("Error starting server: ", err);
+		process.exit(1);
+	});
