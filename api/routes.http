@@ -1,0 +1,38 @@
+# @name post-note
+POST http://localhost:3333/post-note
+Content-Type: application/json
+
+{
+  "title": "Hello Note!",
+  "content": "Hello note in content."
+}
+
+
+###
+# @name delete-note
+DELETE http://localhost:3333/delete-note
+Content-Type: application/json
+
+{
+  "id": "40e22ca4-40f8-4119-83e3-ead1ff2df2f2"
+}
+
+
+
+###
+# @name get-note
+GET http://localhost:3333/get-note
+Content-Type: application/json
+
+
+
+###
+# @name put-note
+PUT http://localhost:3333/put-note
+Content-Type: application/json
+
+{
+  "id": "40e22ca4-40f8-4119-83e3-ead1ff2df2f2",
+  "title": "asgadf",
+  "content": "dhfsfgfs"
+}
