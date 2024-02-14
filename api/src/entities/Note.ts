@@ -1,16 +1,16 @@
 import { z } from "zod";
 
-export const NotePostSchema = z.object({
+export const PostNoteSchema = z.object({
 	id: z.string(),
 	title: z.string(),
 	content: z.string(),
 });
 
-export const NoteDeleteSchema = z.object({
+export const DeleteNoteSchema = z.object({
 	id: z.string(),
 });
 
-export const NotePutScheme = z.object({
+export const PutNoteScheme = z.object({
 	id: z.string(),
 	title: z.string(),
 	content: z.string(),

@@ -7,9 +7,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String   @id @unique
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  notes  Note?   @relation(fields: [noteId], references: [id])
+  noteId String?
+}
+
 model Note {
   id        String   @id @unique
   title     String
   content   String
   createdAt DateTime @default(now())
+
+  User User[]
 }

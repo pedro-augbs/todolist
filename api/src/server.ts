@@ -1,11 +1,13 @@
 import { fastify } from "fastify";
 import { fastifyCors } from "@fastify/cors";
 
-import { postNote } from "./routes/post-note";
+import { postNote } from "./routes/create-note";
 import { deleteNote } from "./routes/delete-note";
 import { getNote } from "./routes/get-note";
 import { putNote } from "./routes/put-note";
 import { initDatabase } from "./lib/prisma";
+import { getUser } from "./routes/get-user";
+import { postUser } from "./routes/create-user";
 
 const app = fastify();
 
@@ -13,11 +15,13 @@ app.register(fastifyCors, {
 	origin: "*",
 });
 
+app.register(getUser);
+app.register(postUser);
+
 app.register(postNote);
 app.register(putNote);
 app.register(getNote);
 app.register(deleteNote);
-
 
 initDatabase()
 	.then(() => {

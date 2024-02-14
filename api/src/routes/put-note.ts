@@ -1,12 +1,12 @@
 import { FastifyInstance } from "fastify";
 
 import { prisma } from "../lib/prisma";
-import { NotePutScheme } from "../schemas/Note";
+import { PutNoteScheme } from "../entities/Note";
 
 export async function putNote(app: FastifyInstance) {
 	app.put("/put-note", async (req, res) => {
 		try {
-			const { id, title, content } = NotePutScheme.parse(req.body);
+			const { id, title, content } = PutNoteScheme.parse(req.body);
 
 			const note = await prisma.note.update({
 				data: {
